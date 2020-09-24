@@ -10,16 +10,10 @@ html {
 
 body {
   font-family: "Roboto", sans-serif;
-  color: var(--main-text-color);
 }
 
 img {
   display: block;
   max-width: 100%;
   height: auto;
-}
-
-#boxes {
-  display: flex;
-  flex-wrap: wrap;
 }
