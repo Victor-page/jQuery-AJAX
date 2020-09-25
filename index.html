@@ -4,25 +4,14 @@
     <meta charset="utf-8" />
     <meta name="robots" content="none" />
     <title>Библиотека jQuery</title>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="jquery.tmpl.min.js"></script>
+
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <!-- <h1>Цветочный магазин</h1>
-    <form method="post">
-      <div id="oblock">
-        <div class="dtable">
-          <div id="row1" class="drow"></div>
-          <div id="row2" class="drow"></div>
-        </div>
-      </div>
-      <div id="buttonDiv">
-        <button type="submit">Заказать</button>
-      </div>
-    </form>
+    <div id="row1" class="drow"></div>
+    <ul id="here"></ul>
 
-    <script>
+    <!--  <script>
       $(function () {
         var data = [
           { name: "Астра", product: "astor", stocklevel: "10", price: 2.99 },
@@ -70,20 +59,30 @@
               value="0" required />
       </div>
     </script> -->
-    <script>
-      $(function () {
-        $.get("flowers.html", function (data) {
-          $(data)
-            .filter("div")
-            .addClass("dcell")
-            .slice(0, 3)
-            .appendTo("#row1")
-            .end()
-            .end()
-            .slice(3)
-            .appendTo("#row2");
-        });
-      });
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="jquery.tmpl.min.js"></script>
+
+    <script src="scripts/index.js"></script>
+
+    <script id="flowerTmpl" type="text/x-jquery-tmpl">
+
+
+        <li class="menu__item">
+          <div class="card">
+              <img src="${flag}" alt="Картофель, запеченный в мундире" class="card__image" />
+              <div class="card__content">
+                  <h2 class="card__name">${name}</h2>
+
+
+                  <p class="card__descr">${capital}</p>
+
+
+              </div>
+
+
+          </div>
+      </li>
     </script>
   </body>
 </html>
