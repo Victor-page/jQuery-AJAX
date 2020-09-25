@@ -1,28 +1,37 @@
-const url = "https://restcountries.eu/rest/v2/name/eesti";
-fetch(url)
-  .then((responce) => responce.json())
-  .then((parcedResponce) => console.log(parcedResponce[0]));
+var baseUrl = "https://pixabay.com/api/?key=18456055-eada9c3423dd28dd686f2293d";
 
-//можно обрабатывать клик
-$(function () {
-  $("<button>Ajax</button>")
-    .appendTo("#here")
-    .click(function (e) {
-      $.ajax({
-        url: "https://restcountries.eu/rest/v2/name/united",
-        success: [processData],
-        error: [processError],
-      });
+function fetchArticles(query = "") {
+  $.ajax({
+    url: baseUrl + query,
+    success: [processData],
+    error: [processError],
+  });
+}
 
-      // e.preventDefault();
-    });
+$(fetchArticles());
 
-  function processData(data, status, jqxhr) {
-    var template = $("#flowerTmpl");
-    template.tmpl(data).appendTo("#row1");
+$(".js-list").click(categoryHandler);
+
+function categoryHandler(e) {
+  if (!$(e.target).hasClass("tag-list__item")) {
+    return;
   }
 
-  function processError(jqxhr, status, errorMsg) {
-    console.log(jqxhr, status, errorMsg);
-  }
-});
+  clearList();
+
+  var requestParam = "&q=" + e.target.textContent;
+  fetchArticles(requestParam);
+}
+
+function clearList() {
+  $(".js-list")[0].innerHTML = "";
+}
+
+function processData(data, status, jqxhr) {
+  var template = $("#flowerTmpl");
+  template.tmpl(data.hits).appendTo(".js-list");
+}
+
+function processError(jqxhr, status, errorMsg) {
+  console.log(jqxhr, status, errorMsg);
+}

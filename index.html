@@ -1,87 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="robots" content="none" />
-    <title>Библиотека jQuery</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>jQuery</title>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <div id="row1" class="drow"></div>
-    <ul id="here"></ul>
+    <ul class="list js-list"></ul>
 
-    <!--  <script>
-      $(function () {
-        var data = [
-          { name: "Астра", product: "astor", stocklevel: "10", price: 2.99 },
-          {
-            name: "Нарцисс",
-            product: "daffodil",
-            stocklevel: "12",
-            price: 1.99,
-          },
-          { name: "Роза", product: "rose", stocklevel: "2", price: 4.99 },
-          { name: "Пион", product: "peony", stocklevel: "0", price: 1.5 },
-          { name: "Примула", product: "primula", stocklevel: "1", price: 3.12 },
-          {
-            name: "Подснежник",
-            product: "snowdrop",
-            stocklevel: "15",
-            price: 0.99,
-          },
-        ];
-
-        $(
-          "<h2>Специальное предложение на сегодняшний день: " +
-            "<span id=offer data-discount='0.50'>скидка 50 центов</span></h2>"
-        )
-          .insertAfter("h1")
-          .css({ color: "red", fontSize: "14pt", textAlign: "center" });
-
-        var template = $("#flowerTmpl");
-        template.tmpl(data.slice(0, 3)).appendTo("#row1");
-        template.tmpl(data.slice(3)).appendTo("#row2");
-
-        $(function () {
-          $("form").submit(function (e) {
-            e.preventDefault();
-          });
-        });
-      });
-    </script>
-
-    <script id="flowerTmpl" type="text/x-jquery-tmpl">
-      <div class="dcell">
-          <img src="http://professorweb.ru/downloads/jquery/${product}.png"/>
-          <label for="${product}">${name}:</label>
-          <input name="${product}" data-price="${price}" data-stock="${stocklevel}"
-              value="0" required />
-      </div>
-    </script> -->
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="jquery.tmpl.min.js"></script>
+    <script src="scripts/library/jquery-3.5.1.min.js"></script>
+    <script src="scripts/template/jquery.tmpl.min.js"></script>
 
     <script src="scripts/index.js"></script>
-
     <script id="flowerTmpl" type="text/x-jquery-tmpl">
-
-
-        <li class="menu__item">
-          <div class="card">
-              <img src="${flag}" alt="Картофель, запеченный в мундире" class="card__image" />
-              <div class="card__content">
-                  <h2 class="card__name">${name}</h2>
-
-
-                  <p class="card__descr">${capital}</p>
-
-
-              </div>
-
-
-          </div>
+      <li class="list__item">
+        <div class="card">
+          <ul class="tag-list">
+            {{each(i,v) Array.from(tags.split(', '))}}
+              <li class="tag-list__item">${v}</li>
+            {{/each}}
+          </ul>
+          <img src="${largeImageURL}"  class="card__image" />
+        </div>
       </li>
     </script>
   </body>
