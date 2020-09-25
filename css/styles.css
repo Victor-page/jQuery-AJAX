@@ -9,11 +9,63 @@ html {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+h1 {
+  min-width: 70px;
+  border: thick double black;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: x-large;
+  padding: 0.5em;
+  color: darkgreen;
+  background-image: url("http://professorweb.ru/downloads/jquery/border.png");
+  background-size: contain;
+  margin-top: 0;
+}
+.dtable {
+  display: table;
+}
+.drow {
+  display: table-row;
+}
+.dcell {
+  display: table-cell;
+  padding: 10px;
+}
+.dcell > * {
+  vertical-align: middle;
+}
+input {
+  width: 2em;
+  text-align: right;
+  border: thin solid black;
+  padding: 2px;
+}
+label {
+  width: 6em;
+  padding-left: 0.5em;
+  display: inline-block;
+}
+#buttonDiv {
+  text-align: center;
+}
+button {
+  padding: 12px;
+}
+#oblock {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 700px;
 }
