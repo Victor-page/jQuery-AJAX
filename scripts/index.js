@@ -28,7 +28,7 @@ function clearList() {
 }
 
 function processData(data, status, jqxhr) {
-  var template = $("#flowerTmpl");
+  var template = $("#template");
   template.tmpl(data.hits).appendTo(".js-list");
 }
 
